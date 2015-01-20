@@ -97,7 +97,8 @@ class Notifier(object):
     def _is_compute_port(self, port):
         try:
             if (port['device_id'] and uuidutils.is_uuid_like(port['device_id'])
-                    and port['device_owner'].startswith('compute:')):
+                    and (port['device_owner'].startswith('compute:')
+                    or port['device_owner'].startswith('network:'))):
                 return True
         except (KeyError, AttributeError):
             pass
