@@ -113,7 +113,9 @@ RESOURCE_ATTRIBUTE_MAP = {
                                        'required': False,
                                    }
                                }
-                           }}
+                           }},
+        'ports': {'allow_post': False, 'allow_put': False,
+                  'is_visible': True}
     },
     'floatingips': {
         'id': {'allow_post': False, 'allow_put': False,

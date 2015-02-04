@@ -190,6 +190,10 @@ class Subnet(model_base.BASEV2, HasId, HasTenant):
                                   constants.DHCPV6_STATEFUL,
                                   constants.DHCPV6_STATELESS,
                                   name='ipv6_address_modes'), nullable=True)
+    ipallocations = orm.relationship(IPAllocation,
+                                     backref='subnet',
+                                     lazy='dynamic',
+                                     cascade='delete')
 
 
 class Network(model_base.BASEV2, HasId, HasTenant):
